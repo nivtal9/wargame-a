@@ -1,15 +1,16 @@
-//
-// Created by nivtal9 on 24.5.2020.
-//
-
-#ifndef WARGAME_A_BOARD_HPP
-#define WARGAME_A_BOARD_HPP
-
+/**
+ * Header file for the board of the war game.
+ *
+ * You can copy this file to a new file called Board.hpp, and extend it as you like.
+ *
+ * @author Oz Levi
+ * @author Erel Segal-Halevi
+ * @since  2020-05
+ */
 
 #include <string>
 #include <vector>
 #include <stdexcept>
-
 #include "Soldier.hpp"
 
 
@@ -45,9 +46,17 @@ namespace WarGame {
 
         // returns true iff the board contains one or more soldiers of the given player.
         bool has_soldiers(uint player_number) const;
+
+        ~Board()
+        {
+            for (auto row: board) {
+                for (auto soldier: row) {
+                    if (soldier)
+                        delete soldier;
+                }
+            }
+            board.clear();
+        }
     };
 
 }
-
-
-#endif //WARGAME_A_BOARD_HPP

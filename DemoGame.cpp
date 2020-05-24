@@ -51,4 +51,15 @@ namespace WarGame {
         // If no player won, return "tie":
         return 0;
     }
+
+/*    DemoGame::~DemoGame() {
+        for (auto row: board) {
+            for (auto soldier: row) {
+                if (soldier)
+                    delete soldier;
+            }
+        }
+        delete board;
+    }*/
+
 }
