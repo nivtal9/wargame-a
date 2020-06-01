@@ -15,7 +15,7 @@ public:
             power=50;
     }
     void attack_or_heal(Soldier & soldiers) override;
-
+    void setMaxHp() override;
 };
 
 

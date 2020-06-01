@@ -19,6 +19,7 @@ namespace WarGame {
     class Board {
     private:
         std::vector<std::vector<Soldier*>> board;
+        //pair<int,int> latestlocation;
     public:
         enum MoveDIR { Up, Down, Right, Left };
 
@@ -47,10 +48,14 @@ namespace WarGame {
         // returns true iff the board contains one or more soldiers of the given player.
         bool has_soldiers(uint player_number) const;
 
+        //returns if the operator/move is authorized
+        bool isAuthorized(std::pair<int,int> location) const;
         ~Board()
         {
             board.clear();
         }
+
+        Soldier &getNearestSoldier(int x,int y,type t,uint id);
     };
 
 }

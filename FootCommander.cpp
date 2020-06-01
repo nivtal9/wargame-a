@@ -6,5 +6,9 @@
 
 
 void FootCommander::attack_or_heal(Soldier &soldiers) {
-    FootSoldier::attack_or_heal(soldiers);
+    soldiers.setHp(-20);
+}
+
+void FootCommander::setMaxHp() {
+    this->hp=150;
 }

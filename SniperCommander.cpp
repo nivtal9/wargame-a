@@ -6,5 +6,9 @@
 
 
 void SniperCommander::attack_or_heal(Soldier &soldiers) {
-    Sniper::attack_or_heal(soldiers);
+    soldiers.setHp(-100);
+}
+
+void SniperCommander::setMaxHp() {
+    this->hp=120;
 }
