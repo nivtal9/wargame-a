@@ -5,11 +5,11 @@
 #ifndef WARGAME_A_SNIPERCOMMANDER_HPP
 #define WARGAME_A_SNIPERCOMMANDER_HPP
 
-#include "Sniper.hpp"
+#include "Soldier.hpp"
 using namespace::std;
-class SniperCommander : public Sniper{
+class SniperCommander : public Soldier{
 public:
-    explicit SniperCommander(uint &id) : Sniper(id) {
+    explicit SniperCommander(uint &id) : Soldier(id) {
             t=type::snipercommander;
             hp=120;
             power=100;

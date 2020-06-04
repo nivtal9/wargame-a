@@ -6,11 +6,11 @@
 #define WARGAME_A_PARAMEDICCOMMANDER_HPP
 
 
-#include "Paramedic.hpp"
+#include "Soldier.hpp"
 using namespace::std;
-class ParamedicCommander: public Paramedic {
+class ParamedicCommander: public Soldier {
 public:
-    explicit ParamedicCommander(uint &id) : Paramedic(id) {
+    explicit ParamedicCommander(uint &id) : Soldier(id) {
             t=type::paramediccommander;
             hp=100;
             power=10;

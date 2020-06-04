@@ -4,11 +4,11 @@
 
 #ifndef WARGAME_A_FOOTCOMMANDER_HPP
 #define WARGAME_A_FOOTCOMMANDER_HPP
-#include "FootSoldier.hpp"
+#include "Soldier.hpp"
 using namespace ::std;
-class FootCommander : public FootSoldier{
+class FootCommander : public Soldier{
 public:
-    explicit FootCommander(uint id) : FootSoldier(id) {
+    explicit FootCommander(uint id) : Soldier(id) {
         t=type::footcommander;
         hp=150;
         power=20;
