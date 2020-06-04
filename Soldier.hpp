@@ -18,7 +18,7 @@ protected:
     pair<uint,uint> location;
 public:
 
-    explicit Soldier(uint &id){
+     Soldier(uint &id){
         this->Player_id=id;
     }
 /*    Soldier(uint &id,pair<uint,uint> location){
