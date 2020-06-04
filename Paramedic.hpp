@@ -9,7 +9,7 @@
 using namespace::std;
 class Paramedic : public Soldier{
 public:
-    Paramedic(uint id) : Soldier(id) {
+    explicit Paramedic(uint id) : Soldier(id) {
             t=type::paramedic;
             hp=100;
             power=100;

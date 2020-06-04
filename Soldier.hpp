@@ -18,8 +18,8 @@ protected:
     pair<uint,uint> location;
 public:
 
-     Soldier(uint &id){
-        this->Player_id=id;
+     Soldier(uint id):Player_id(id){
+         //this->Player_id=id;
     }
 /*    Soldier(uint &id,pair<uint,uint> location){
         this->Player_id=id;
