@@ -55,8 +55,8 @@ FootCommander.hpp
 /home/nivtal9/CLionProjects/wargame-a/FootCommander.hpp
 
 /home/nivtal9/CLionProjects/wargame-a/FootCommander.hpp
-FootSoldier.hpp
-/home/nivtal9/CLionProjects/wargame-a/FootSoldier.hpp
+Soldier.hpp
+/home/nivtal9/CLionProjects/wargame-a/Soldier.hpp
 
 /home/nivtal9/CLionProjects/wargame-a/FootSoldier.cpp
 FootSoldier.hpp
@@ -79,8 +79,8 @@ ParamedicCommander.hpp
 /home/nivtal9/CLionProjects/wargame-a/ParamedicCommander.hpp
 
 /home/nivtal9/CLionProjects/wargame-a/ParamedicCommander.hpp
-Paramedic.hpp
-/home/nivtal9/CLionProjects/wargame-a/Paramedic.hpp
+Soldier.hpp
+/home/nivtal9/CLionProjects/wargame-a/Soldier.hpp
 
 /home/nivtal9/CLionProjects/wargame-a/Sniper.cpp
 Sniper.hpp
@@ -95,8 +95,8 @@ SniperCommander.hpp
 /home/nivtal9/CLionProjects/wargame-a/SniperCommander.hpp
 
 /home/nivtal9/CLionProjects/wargame-a/SniperCommander.hpp
-Sniper.hpp
-/home/nivtal9/CLionProjects/wargame-a/Sniper.hpp
+Soldier.hpp
+/home/nivtal9/CLionProjects/wargame-a/Soldier.hpp
 
 /home/nivtal9/CLionProjects/wargame-a/Soldier.hpp
 iostream
@@ -111,6 +111,10 @@ doctest.h
 /home/nivtal9/CLionProjects/wargame-a/doctest.h
 FootSoldier.hpp
 /home/nivtal9/CLionProjects/wargame-a/FootSoldier.hpp
+
+/home/nivtal9/CLionProjects/wargame-a/TestCounter.cpp
+doctest.h
+/home/nivtal9/CLionProjects/wargame-a/doctest.h
 
 /home/nivtal9/CLionProjects/wargame-a/doctest.h
 iosfwd

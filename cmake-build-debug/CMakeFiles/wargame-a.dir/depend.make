@@ -23,7 +23,6 @@ CMakeFiles/wargame-a.dir/DemoGame.cpp.o: ../Soldier.hpp
 
 CMakeFiles/wargame-a.dir/FootCommander.cpp.o: ../FootCommander.cpp
 CMakeFiles/wargame-a.dir/FootCommander.cpp.o: ../FootCommander.hpp
-CMakeFiles/wargame-a.dir/FootCommander.cpp.o: ../FootSoldier.hpp
 CMakeFiles/wargame-a.dir/FootCommander.cpp.o: ../Soldier.hpp
 
 CMakeFiles/wargame-a.dir/FootSoldier.cpp.o: ../FootSoldier.cpp
@@ -34,7 +33,6 @@ CMakeFiles/wargame-a.dir/Paramedic.cpp.o: ../Paramedic.cpp
 CMakeFiles/wargame-a.dir/Paramedic.cpp.o: ../Paramedic.hpp
 CMakeFiles/wargame-a.dir/Paramedic.cpp.o: ../Soldier.hpp
 
-CMakeFiles/wargame-a.dir/ParamedicCommander.cpp.o: ../Paramedic.hpp
 CMakeFiles/wargame-a.dir/ParamedicCommander.cpp.o: ../ParamedicCommander.cpp
 CMakeFiles/wargame-a.dir/ParamedicCommander.cpp.o: ../ParamedicCommander.hpp
 CMakeFiles/wargame-a.dir/ParamedicCommander.cpp.o: ../Soldier.hpp
@@ -43,7 +41,6 @@ CMakeFiles/wargame-a.dir/Sniper.cpp.o: ../Sniper.cpp
 CMakeFiles/wargame-a.dir/Sniper.cpp.o: ../Sniper.hpp
 CMakeFiles/wargame-a.dir/Sniper.cpp.o: ../Soldier.hpp
 
-CMakeFiles/wargame-a.dir/SniperCommander.cpp.o: ../Sniper.hpp
 CMakeFiles/wargame-a.dir/SniperCommander.cpp.o: ../SniperCommander.cpp
 CMakeFiles/wargame-a.dir/SniperCommander.cpp.o: ../SniperCommander.hpp
 CMakeFiles/wargame-a.dir/SniperCommander.cpp.o: ../Soldier.hpp
