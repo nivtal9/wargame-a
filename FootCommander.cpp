@@ -5,8 +5,9 @@
 #include "FootCommander.hpp"
 
 
-void FootCommander::attack_or_heal(Soldier &soldiers) {
+bool FootCommander::attack_or_heal(Soldier &soldiers) {
     soldiers.setHp(-20);
+    return soldiers.isAlive();
 }
 
 void FootCommander::setMaxHp() {

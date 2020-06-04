@@ -5,8 +5,9 @@
 #include "SniperCommander.hpp"
 
 
-void SniperCommander::attack_or_heal(Soldier &soldiers) {
+bool SniperCommander::attack_or_heal(Soldier &soldiers) {
     soldiers.setHp(-100);
+    return soldiers.isAlive();
 }
 
 void SniperCommander::setMaxHp() {

@@ -4,8 +4,9 @@
 
 #include "ParamedicCommander.hpp"
 
-void ParamedicCommander::attack_or_heal(Soldier &soldiers) {
+bool ParamedicCommander::attack_or_heal(Soldier &soldiers) {
     soldiers.setMaxHp();
+    return true;
 }
 
 void ParamedicCommander::setMaxHp() {

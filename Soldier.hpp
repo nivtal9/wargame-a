@@ -54,7 +54,7 @@ public:
        cout<<"hp: "<<this->hp<<endl;
        cout<<"power: "<<this->power<<endl;
     }
-    virtual void attack_or_heal(Soldier& soldiers)=0;
+    virtual bool attack_or_heal(Soldier& soldiers)=0;
     virtual void setMaxHp()=0;
 };
 

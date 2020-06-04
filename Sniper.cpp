@@ -6,8 +6,9 @@
 
 
 
-void Sniper::attack_or_heal(Soldier &soldiers) {
+bool Sniper::attack_or_heal(Soldier &soldiers) {
 soldiers.setHp(-50);
+    return soldiers.isAlive();
 }
 
 void Sniper::setMaxHp() {

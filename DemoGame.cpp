@@ -10,13 +10,16 @@
 #include "DemoGame.hpp"
 #include "FootSoldier.hpp"
 #include "FootCommander.hpp"
-
+#include "Sniper.hpp"
+#include "SniperCommander.hpp"
+#include "Paramedic.hpp"
+#include "ParamedicCommander.hpp"
 #include <cassert>
 
 namespace WarGame {
 
     DemoGame::DemoGame(): board (numRows, numCols) {
-        // Add soldiers for player 1:
+/*        // Add soldiers for player 1:
         //assert(!board.has_soldiers(1));
         board[{0,1}] = new FootSoldier(1);
         board[{0,3}] = new FootCommander(1);
@@ -28,9 +31,27 @@ namespace WarGame {
         board[{7,1}] = new FootSoldier(2);
         board[{7,3}] = new FootCommander(2);
         board[{7,5}] = new FootSoldier(2);
-        //assert(board.has_soldiers(2));
+        //assert(board.has_soldiers(2));*/
 
         // In your game, you can put more soldier types, such as the sniper and the paramedic types.
+        WarGame::Board board(8,8);
+        assert(!board.has_soldiers(1));
+        board[{0,1}] = new Sniper(1);
+        assert(board.has_soldiers(1));
+
+        assert(!board.has_soldiers(2));
+        board[{7,1}] = new Sniper(2);
+        assert(board.has_soldiers(2));
+
+        board.move(1,{0,1},WarGame::Board::MoveDIR::Up);
+        assert(board.has_soldiers(2));
+        assert(board.has_soldiers(1));
+
+//            (board.move(1, {0, 1}, WarGame::Board::MoveDIR::Up));
+        //catch(exception &e){cout<<"nivtal"<<endl;}
+        board.move(1,{1,1},WarGame::Board::MoveDIR::Up);
+        assert(!board.has_soldiers(2));
+        assert(board.has_soldiers(1));
     }
 
     uint DemoGame::play() {

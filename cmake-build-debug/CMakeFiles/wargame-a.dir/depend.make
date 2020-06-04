@@ -15,6 +15,10 @@ CMakeFiles/wargame-a.dir/DemoGame.cpp.o: ../DemoGame.cpp
 CMakeFiles/wargame-a.dir/DemoGame.cpp.o: ../DemoGame.hpp
 CMakeFiles/wargame-a.dir/DemoGame.cpp.o: ../FootCommander.hpp
 CMakeFiles/wargame-a.dir/DemoGame.cpp.o: ../FootSoldier.hpp
+CMakeFiles/wargame-a.dir/DemoGame.cpp.o: ../Paramedic.hpp
+CMakeFiles/wargame-a.dir/DemoGame.cpp.o: ../ParamedicCommander.hpp
+CMakeFiles/wargame-a.dir/DemoGame.cpp.o: ../Sniper.hpp
+CMakeFiles/wargame-a.dir/DemoGame.cpp.o: ../SniperCommander.hpp
 CMakeFiles/wargame-a.dir/DemoGame.cpp.o: ../Soldier.hpp
 
 CMakeFiles/wargame-a.dir/FootCommander.cpp.o: ../FootCommander.cpp
