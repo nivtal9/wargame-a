@@ -11,7 +11,7 @@ enum type{footsoldier, footcommander ,sniper, snipercommander, paramedic, parame
 using namespace std;
 class Soldier {
 protected:
-    uint Player_id;
+     uint Player_id;
     type t;
     int hp;
     uint power;
@@ -26,16 +26,16 @@ public:
         this->location.first=location.first;
         this->location.second=location.second;
     }*/
-    bool isAlive() const{
+    bool isAlive(){
        return this->hp > 0;
    }
-    uint getId() const{
+    uint getId(){
         return this->Player_id;
     }
     void setHp(int impact) {
         this->hp=hp+impact;
     }
-    int getHp() const {
+    int getHp(){
         return this->hp;
     }
     pair<int,int> getLocation(){
