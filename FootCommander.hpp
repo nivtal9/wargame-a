@@ -8,7 +8,7 @@
 using namespace ::std;
 class FootCommander : public FootSoldier{
 public:
-    FootCommander(uint id) : FootSoldier(id) {
+    explicit FootCommander(uint id) : FootSoldier(id) {
         t=type::footcommander;
         hp=150;
         power=20;

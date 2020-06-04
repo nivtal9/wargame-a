@@ -9,7 +9,7 @@
 using namespace::std;
 class SniperCommander : public Sniper{
 public:
-    SniperCommander(uint &id) : Sniper(id) {
+    explicit SniperCommander(uint &id) : Sniper(id) {
             t=type::snipercommander;
             hp=120;
             power=100;

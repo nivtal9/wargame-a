@@ -11,7 +11,7 @@ using namespace::std;
 class FootSoldier : public Soldier{
 
 public:
-    FootSoldier(uint id) : Soldier(id) {
+    explicit FootSoldier(uint id) : Soldier(id) {
         t=type::footsoldier;
         hp=100;
         power=10;

@@ -18,7 +18,7 @@ protected:
     pair<uint,uint> location;
 public:
 
-    Soldier(uint &id){
+    explicit Soldier(uint &id){
         this->Player_id=id;
     }
 /*    Soldier(uint &id,pair<uint,uint> location){
@@ -29,13 +29,13 @@ public:
     bool isAlive() const{
        return this->hp > 0;
    }
-    uint getId(){
+    uint getId() const{
         return this->Player_id;
     }
     void setHp(int impact) {
         this->hp=hp+impact;
     }
-    int getHp() {
+    int getHp() const {
         return this->hp;
     }
     pair<int,int> getLocation(){
