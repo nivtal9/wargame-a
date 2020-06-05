@@ -24,5 +24,4 @@ int main(int argc, char** argv) {
     Context context;
     context.addFilter("reporters", "counter");
     context.run();
-}
-*/
+}*/

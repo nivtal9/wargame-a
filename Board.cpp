@@ -46,11 +46,17 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
             Soldier &sol1 = getNearestSoldier(source.first, source.second + 1,
                                               board[source.first][source.second + 1]->getType(),
                                               board[source.first][source.second + 1]->getId());
-            if (!board[source.first][source.second + 1]->attack_or_heal(sol1)) {
-                cout<<"Right via Move"<<endl;
-                board[sol1.getLocation().first][sol1.getLocation().second] = nullptr;
+            if(board[sol1.getLocation().first][sol1.getLocation().second] != nullptr) {
+                if (board[source.first][source.second + 1]->getType() == footsoldier ||
+                    board[source.first][source.second + 1]->getType() == sniper) {
+
+                    if (!board[source.first][source.second + 1]->attack_or_heal(sol1)) {
+                        cout << "Right via Move" << endl;
+                        board[sol1.getLocation().first][sol1.getLocation().second] = nullptr;
+                    }
+                }
             }
-            for (int i = 0; i < board.size(); ++i) {
+           /* for (int i = 0; i < board.size(); ++i) {
                 for (int j = 0; j < board[0].size(); ++j) {
                    if(j==0)
                        cout<<endl;
@@ -62,6 +68,7 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
                 }
             }
             cout<<endl;
+            */
             break;
         }
         case Left: {
@@ -75,11 +82,17 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
             Soldier &sol2 = getNearestSoldier(source.first, source.second - 1,
                                               board[source.first][source.second - 1]->getType(),
                                               board[source.first][source.second - 1]->getId());
-            if (!board[source.first][source.second - 1]->attack_or_heal(sol2)) {
-                cout<<"left via Move"<<endl;
-                board[sol2.getLocation().first][sol2.getLocation().second] = nullptr;
+            if(board[sol2.getLocation().first][sol2.getLocation().second] != nullptr) {
+                if (board[source.first][source.second-1]->getType() == footsoldier ||
+                    board[source.first ][source.second-1]->getType() == sniper) {
+
+                    if (!board[source.first][source.second - 1]->attack_or_heal(sol2)) {
+                        cout << "left via Move" << endl;
+                        board[sol2.getLocation().first][sol2.getLocation().second] = nullptr;
+                    }
+                }
             }
-            for (int i = 0; i < board.size(); ++i) {
+        /*    for (int i = 0; i < board.size(); ++i) {
                 for (int j = 0; j < board[0].size(); ++j) {
                     if(j==0)
                         cout<<endl;
@@ -91,6 +104,7 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
                 }
             }
             cout<<endl;
+            */
             break;
         }
         case Up: {
@@ -104,13 +118,15 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
             Soldier &sol3 = getNearestSoldier(source.first + 1, source.second,
                                               board[source.first + 1][source.second]->getType(),
                                               board[source.first + 1][source.second]->getId());
-            if(board[source.first + 1][source.second]->getType()==footsoldier||board[source.first + 1][source.second]->getType()==sniper ) {
+            if(board[sol3.getLocation().first][sol3.getLocation().second] != nullptr){
+                if( board[source.first + 1][source.second]->getType()==footsoldier||board[source.first + 1][source.second]->getType()==sniper ) {
 
-                if (!board[source.first + 1][source.second]->attack_or_heal(sol3)) {
-                cout << "Up via Move" << endl;
-                board[sol3.getLocation().first][sol3.getLocation().second] = nullptr;
+                    if (!board[source.first + 1][source.second]->attack_or_heal(sol3)) {
+                        cout << "Up via Move" << endl;
+                        board[sol3.getLocation().first][sol3.getLocation().second] = nullptr;
 
-            }
+                    }
+                }
         }
             for (int i = 0; i < board.size(); ++i) {
                 for (int j = 0; j < board[0].size(); ++j) {
@@ -124,6 +140,7 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
                 }
             }
             cout<<endl;
+
             break;
         }
         case Down: {
@@ -137,11 +154,14 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
             Soldier &sol4=getNearestSoldier(source.first - 1, source.second,
                                             board[source.first - 1][source.second]->getType(),
                                             board[source.first - 1][source.second]->getId());
-           if(board[source.first - 1][source.second]->getType()==footsoldier||board[source.first - 1][source.second]->getType()==sniper ) {
+
+            if(board[sol4.getLocation().first][sol4.getLocation().second] != nullptr){
+           if( board[source.first - 1][source.second]->getType()==footsoldier||board[source.first - 1][source.second]->getType()==sniper ) {
                if (!board[source.first - 1][source.second]->attack_or_heal(sol4)) {
                    cout << "Down via Move" << endl;
                    board[sol4.getLocation().first][sol4.getLocation().second] = nullptr;
                }
+           }
            }
             for (int i = 0; i < board.size(); ++i) {
                 for (int j = 0; j < board[0].size(); ++j) {
@@ -155,6 +175,7 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
                 }
             }
             cout<<endl;
+
             break;
         }
     }
@@ -216,6 +237,8 @@ Soldier &WarGame::Board::getNearestSoldier(int x,int y,type t,uint id) {
                     }
                 }
                 else if (board[i][j] != nullptr && board[i][j]->getId() == id && board[i][j]->getType() == footcommander) {
+                    s = board[i][j];
+                    s->setLocation(pair<int, int> (i,j));
                     Soldier &sol5=getNearestSoldier(i, j, footsoldier, id);
                     if(!board[i][j]->attack_or_heal(sol5)){
                         cout<<"footcomander via getNearest"<<endl;
@@ -274,6 +297,8 @@ Soldier &WarGame::Board::getNearestSoldier(int x,int y,type t,uint id) {
                     }
                 }
                 else if (board[i][j] != nullptr && board[i][j]->getId() == id && board[i][j]->getType() == snipercommander) {
+                    s = board[i][j];
+                    s->setLocation(pair<int, int> (i,j));
                     Soldier &sol7=getNearestSoldier(i, j, sniper, id);
                     if(!board[i][j]->attack_or_heal(sol7)){
                         cout<<"snipercomander1 via getNearest"<<endl;
