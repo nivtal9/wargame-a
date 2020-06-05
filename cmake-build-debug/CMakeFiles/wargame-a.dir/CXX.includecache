@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/nivtal9/CLionProjects/wargame-a/Board.cpp
+/home/avi/CLionProjects/wargame-a/Board.cpp
 Board.hpp
-/home/nivtal9/CLionProjects/wargame-a/Board.hpp
+/home/avi/CLionProjects/wargame-a/Board.hpp
 cmath
-/home/nivtal9/CLionProjects/wargame-a/cmath
+/home/avi/CLionProjects/wargame-a/cmath
 
-/home/nivtal9/CLionProjects/wargame-a/Board.hpp
+/home/avi/CLionProjects/wargame-a/Board.hpp
 string
 -
 vector
@@ -20,9 +20,9 @@ vector
 stdexcept
 -
 Soldier.hpp
-/home/nivtal9/CLionProjects/wargame-a/Soldier.hpp
+/home/avi/CLionProjects/wargame-a/Soldier.hpp
 
-/home/nivtal9/CLionProjects/wargame-a/Soldier.hpp
+/home/avi/CLionProjects/wargame-a/Soldier.hpp
 iostream
 -
 

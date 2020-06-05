@@ -7,6 +7,7 @@
  * @since  2020-05
  */
 
+#include <assert.h>
 #include "DemoGame.hpp"
 #include "FootSoldier.hpp"
 #include "FootCommander.hpp"
@@ -15,7 +16,7 @@
 namespace WarGame {
 
     DemoGame::DemoGame(): board (numRows, numCols) {
-        // Add soldiers for player 1:
+       /* // Add soldiers for player 1:
         //assert(!board.has_soldiers(1));
         board[{0,1}] = new FootSoldier(1);
         board[{0,3}] = new FootCommander(1);
@@ -28,7 +29,7 @@ namespace WarGame {
         board[{7,3}] = new FootCommander(2);
         board[{7,5}] = new FootSoldier(2);
         //assert(board.has_soldiers(2));
-/*        WarGame::Board board(8,8);
+*/        WarGame::Board board(8,8);
         assert(!board.has_soldiers(1));
         board[{0,1}] = new FootSoldier(1);//player 1 footSoldier1 {0,1}
         // CHECK_THROWS((board[{0,1}] = new FootSoldier(1))); //there is already soldier there
@@ -89,7 +90,7 @@ namespace WarGame {
         board.move(1,{0,2},WarGame::Board::MoveDIR::Up);
         board.move(1,{1,2},WarGame::Board::MoveDIR::Up);
         assert(!board.has_soldiers(2));
-        assert(board.has_soldiers(1));*/
+        assert(board.has_soldiers(1));
 
         // In your game, you can put more soldier types, such as the sniper and the paramedic types.
     }

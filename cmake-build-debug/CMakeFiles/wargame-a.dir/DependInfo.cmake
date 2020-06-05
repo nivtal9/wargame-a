@@ -4,17 +4,17 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/nivtal9/CLionProjects/wargame-a/Board.cpp" "/home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/Board.cpp.o"
-  "/home/nivtal9/CLionProjects/wargame-a/Demo.cpp" "/home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/Demo.cpp.o"
-  "/home/nivtal9/CLionProjects/wargame-a/DemoGame.cpp" "/home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/DemoGame.cpp.o"
-  "/home/nivtal9/CLionProjects/wargame-a/FootCommander.cpp" "/home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/FootCommander.cpp.o"
-  "/home/nivtal9/CLionProjects/wargame-a/FootSoldier.cpp" "/home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/FootSoldier.cpp.o"
-  "/home/nivtal9/CLionProjects/wargame-a/Paramedic.cpp" "/home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/Paramedic.cpp.o"
-  "/home/nivtal9/CLionProjects/wargame-a/ParamedicCommander.cpp" "/home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/ParamedicCommander.cpp.o"
-  "/home/nivtal9/CLionProjects/wargame-a/Sniper.cpp" "/home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/Sniper.cpp.o"
-  "/home/nivtal9/CLionProjects/wargame-a/SniperCommander.cpp" "/home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/SniperCommander.cpp.o"
-  "/home/nivtal9/CLionProjects/wargame-a/Test.cpp" "/home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/Test.cpp.o"
-  "/home/nivtal9/CLionProjects/wargame-a/TestCounter.cpp" "/home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/TestCounter.cpp.o"
+  "/home/avi/CLionProjects/wargame-a/Board.cpp" "/home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/Board.cpp.o"
+  "/home/avi/CLionProjects/wargame-a/Demo.cpp" "/home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/Demo.cpp.o"
+  "/home/avi/CLionProjects/wargame-a/DemoGame.cpp" "/home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/DemoGame.cpp.o"
+  "/home/avi/CLionProjects/wargame-a/FootCommander.cpp" "/home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/FootCommander.cpp.o"
+  "/home/avi/CLionProjects/wargame-a/FootSoldier.cpp" "/home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/FootSoldier.cpp.o"
+  "/home/avi/CLionProjects/wargame-a/Paramedic.cpp" "/home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/Paramedic.cpp.o"
+  "/home/avi/CLionProjects/wargame-a/ParamedicCommander.cpp" "/home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/ParamedicCommander.cpp.o"
+  "/home/avi/CLionProjects/wargame-a/Sniper.cpp" "/home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/Sniper.cpp.o"
+  "/home/avi/CLionProjects/wargame-a/SniperCommander.cpp" "/home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/SniperCommander.cpp.o"
+  "/home/avi/CLionProjects/wargame-a/Test.cpp" "/home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/Test.cpp.o"
+  "/home/avi/CLionProjects/wargame-a/TestCounter.cpp" "/home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles/wargame-a.dir/TestCounter.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

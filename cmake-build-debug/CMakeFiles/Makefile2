@@ -44,10 +44,10 @@ RM = /snap/clion/114/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nivtal9/CLionProjects/wargame-a
+CMAKE_SOURCE_DIR = /home/avi/CLionProjects/wargame-a
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nivtal9/CLionProjects/wargame-a/cmake-build-debug
+CMAKE_BINARY_DIR = /home/avi/CLionProjects/wargame-a/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +74,14 @@ clean: CMakeFiles/wargame-a.dir/clean
 CMakeFiles/wargame-a.dir/all:
 	$(MAKE) -f CMakeFiles/wargame-a.dir/build.make CMakeFiles/wargame-a.dir/depend
 	$(MAKE) -f CMakeFiles/wargame-a.dir/build.make CMakeFiles/wargame-a.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target wargame-a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target wargame-a"
 .PHONY : CMakeFiles/wargame-a.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/wargame-a.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/wargame-a.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nivtal9/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/avi/CLionProjects/wargame-a/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/wargame-a.dir/rule
 
 # Convenience name for target.
