@@ -289,20 +289,31 @@ Soldier &WarGame::Board::getNearestSoldier(int x,int y,type t,uint id) {
         pair<int, int> MaxHpPlace(-1, -1);*/
         for (int i = 0; i <board.size() ; ++i) {
             for (int j = 0; j <board[0].size() ; ++j) {
-                if (board[i][j] != nullptr && board[i][j]->getId() == id && board[i][j]->getType() == sniper) {
-                    Soldier &sol7=getNearestSoldier(i, j, sniper, id);
-                    if(!board[i][j]->attack_or_heal(sol7)){
-                        cout<<"snipercomander1 via getNearest"<<endl;
-                        board[sol7.getLocation().first][sol7.getLocation().second]=nullptr;
-                    }
-                }
-                else if (board[i][j] != nullptr && board[i][j]->getId() == id && board[i][j]->getType() == snipercommander) {
+                 if (board[i][j] != nullptr && board[i][j]->getId() == id && board[i][j]->getType() == snipercommander) {
                     s = board[i][j];
                     s->setLocation(pair<int, int> (i,j));
                     Soldier &sol7=getNearestSoldier(i, j, sniper, id);
                     if(!board[i][j]->attack_or_heal(sol7)){
                         cout<<"snipercomander1 via getNearest"<<endl;
                         board[sol7.getLocation().first][sol7.getLocation().second]=nullptr;
+                    }
+                }
+/*                if(board[i][j] != nullptr && board[i][j]->getId() != id){
+                    if(board[i][j]->getHp()>MaxHp){
+                        MaxHp=board[i][j]->getHp();
+                        MaxHpPlace.first=i;
+                        MaxHpPlace.second=j;
+                    }
+                }*/
+            }
+        }
+        for (int i = 0; i <board.size() ; ++i) {
+            for (int j = 0; j <board[0].size() ; ++j) {
+                if (board[i][j] != nullptr && board[i][j]->getId() == id && board[i][j]->getType() == sniper) {
+                    Soldier &sol7 = getNearestSoldier(i, j, sniper, id);
+                    if (!board[i][j]->attack_or_heal(sol7)) {
+                        cout << "snipercomander1 via getNearest" << endl;
+                        board[sol7.getLocation().first][sol7.getLocation().second] = nullptr;
                     }
                 }
 /*                if(board[i][j] != nullptr && board[i][j]->getId() != id){
@@ -325,56 +336,66 @@ Soldier &WarGame::Board::getNearestSoldier(int x,int y,type t,uint id) {
 //return sol8;
     }
     if(t==paramedic){
+        s=board[x][y];
         try {
             if(board[x][y+1]!= nullptr&&board[x][y]->getId()==id){
+                cout<<board[x][y+1]->getHp()<<endl;
                 board[x][y+1]->setMaxHp();
             }
         }
         catch(exception &e){}
         try {
             if(board[x][y-1]!= nullptr&&board[x][y]->getId()==id){
+                cout<<board[x][y-1]->getHp()<<endl;
                 board[x][y-1]->setMaxHp();
             }
         }
         catch(exception &e){}
         try {
             if(board[x+1][y]!= nullptr&&board[x][y]->getId()==id){
+                cout<<board[x+1][y]->getHp()<<endl;
                 board[x+1][y]->setMaxHp();
             }
         }
         catch(exception &e){}
         try {
             if(board[x-1][y]!= nullptr&&board[x][y]->getId()==id){
+                cout<<board[x-1][y]->getHp()<<endl;
                 board[x-1][y]->setMaxHp();
             }
         }
         catch(exception &e){}
         try {
             if(board[x+1][y+1]!= nullptr&&board[x][y]->getId()==id){
+                cout<<board[x+1][y+1]->getHp()<<endl;
                 board[x+1][y+1]->setMaxHp();
             }
         }
         catch(exception &e){}
         try {
             if(board[x-1][y+1]!= nullptr&&board[x][y]->getId()==id){
+                cout<<board[x-1][y+1]->getHp()<<endl;
                 board[x-1][y+1]->setMaxHp();
             }
         }
         catch(exception &e){}
         try {
             if(board[x+1][y-1]!= nullptr&&board[x][y]->getId()==id){
+                cout<<board[x+1][y-1]->getHp()<<endl;
                 board[x+1][y-1]->setMaxHp();
             }
         }
         catch(exception &e){}
         try {
             if(board[x-1][y-1]!= nullptr&&board[x][y]->getId()==id){
+                cout<<board[x-1][y-1]->getHp()<<endl;
                 board[x-1][y-1]->setMaxHp();
             }
         }
         catch(exception &e){}
     }
     if(t==paramediccommander){
+        s=board[x][y];
         for (int i = 0; i <board.size() ; ++i) {
             for (int j = 0; j <board[0].size() ; ++j) {
                 if (board[i][j] != nullptr && board[i][j]->getId() == id && board[i][j]->getType() == paramedic) {

@@ -11,7 +11,10 @@
 #include "DemoGame.hpp"
 #include "FootSoldier.hpp"
 #include "FootCommander.hpp"
-
+#include "Sniper.hpp"
+#include "SniperCommander.hpp"
+#include "Paramedic.hpp"
+#include "ParamedicCommander.hpp"
 
 namespace WarGame {
 
@@ -31,66 +34,63 @@ namespace WarGame {
         //assert(board.has_soldiers(2));
 */        WarGame::Board board(8,8);
         assert(!board.has_soldiers(1));
-        board[{0,1}] = new FootSoldier(1);//player 1 footSoldier1 {0,1}
-        // CHECK_THROWS((board[{0,1}] = new FootSoldier(1))); //there is already soldier there
-        board[{0,0}] = new FootCommander(1); //player 1 commanderSoldier {0,0}
-        board[{0,2}] = new FootSoldier(1);//player 1 footSoldier2 {0,2}
-        assert(board.has_soldiers(1)); //there is no need to write this any time
-
+        board[{0,0}] = new FootSoldier(1);//player 1 soldier1
+        assert(board.has_soldiers(1));
+        board[{0,1}] = new FootCommander(1);//player 1 soldier2
+        assert(board.has_soldiers(1));
+        board[{0,2}] = new Sniper(1);//player 1 soldier3
+        assert(board.has_soldiers(1));
+        board[{0,3}] = new SniperCommander(1);//player 1 soldier4
+        assert(board.has_soldiers(1));
+        board[{0,4}] = new Paramedic(1);//player 1 soldier5
+        board[{0,5}] = new ParamedicCommander(1);//player 1 soldier6
+        assert(board.has_soldiers(1));
         assert(!board.has_soldiers(2));
-        board[{7,0}] = new FootCommander(2);//player 2 commanderSoldier {7,0}
-        board[{7,1}] = new FootSoldier(2);//player 2 footSoldier1 {7,1}
-        board[{7,2}] = new FootSoldier(2);//player 2 footSoldier2 {7,2}
+        board[{7,0}] = new FootSoldier(2);//player 2 soldier1
+        board[{7,1}] = new FootCommander(2);//player 2 soldier2
+        board[{7,2}] = new Sniper(2);//player 2 soldier3
+        board[{7,3}] = new SniperCommander(2);//player 2 soldier4
+        board[{7,4}] = new Paramedic(2);//player 2 soldier5
+        board[{7,5}] = new ParamedicCommander(2);//player 2 soldier6
 
+
+        //consider using for.....
+        assert(board.has_soldiers(2));
+        board.move(1,{0,0},WarGame::Board::MoveDIR::Up); //player2 soldier1 - 90
+        assert(board.has_soldiers(2));
+        board.move(1,{0,1},WarGame::Board::MoveDIR::Up);//player2 soldier2 - 130, player 2 soldier1 - 80
+        assert(board.has_soldiers(2));
+        board.move(1,{0,2},WarGame::Board::MoveDIR::Up);//player2 soldier6 - 150
+        assert(board.has_soldiers(2));
+        board.move(1,{0,3},WarGame::Board::MoveDIR::Up);//player2 soldier6 - 50, player 2 soldier2 80 //need to define that commander shoots first
+        assert(board.has_soldiers(2));
+        board.move(1,{0,4},WarGame::Board::MoveDIR::Up);//player1 soldier4 - 120 //need to define that curing id done after the step/move
+        assert(board.has_soldiers(2));
+        board.move(1,{0,5},WarGame::Board::MoveDIR::Up); //player1 soldier5 - 100, player 1 soldier4 - 120, player 1 soldier6 - 200
         assert(board.has_soldiers(2));
 
-        board.move(1,{0,1},WarGame::Board::MoveDIR::Up); //player 2 footsoldier1 - 90
-        assert(board.has_soldiers(2));
-        assert(board.has_soldiers(1));
-        //try{(board.move(1,{0,1},WarGame::Board::MoveDIR::Up));}
-        //catch(exception &e){cout<<"nivtal1"<<endl;}//no soldier there
-        board.move(1,{1,1},WarGame::Board::MoveDIR::Up); //player 2 footsoldier1 - 80
-        assert(board.has_soldiers(2));
-        assert(board.has_soldiers(1));
 
-        //try{(board.move(2,{7,0},WarGame::Board::MoveDIR::Left));} // cant move left
-        //catch(exception &e){cout<<"nivtal2"<<endl;}
-        board.move(2,{7,0},WarGame::Board::MoveDIR::Down); //player 1 commanderSoldier - 130, player 1 footsoldier1 - 70,   player 1 footsoldier2 - 90,
+        //sniper 1 will kill them all
+        board.move(1,{1,3},WarGame::Board::MoveDIR::Down); //player2 soldier6 - 100, player 2 soldier2 80
         assert(board.has_soldiers(2));
-        assert(board.has_soldiers(1));
+        board.move(1,{0,3},WarGame::Board::MoveDIR::Up); //player2 soldier4 - 20, player2 soldier3 - 50 //need to define to check the closes when there are equalh healh points
+        assert(board.has_soldiers(2));
+        board.move(1,{1,3},WarGame::Board::MoveDIR::Down); //player2 soldier5 - 0, player2 soldier6 - 50
+        assert(board.has_soldiers(2));
+        board.move(1,{0,3},WarGame::Board::MoveDIR::Up); //player2 soldier1 - 0, player2 soldier2 - 30
+        //just to be Sure all is dead
 
-        board.move(1,{0,0},WarGame::Board::MoveDIR::Up);//player 2 commanderSoldier - 130, player 2 footsoldier1 - 70,   player 2 footsoldier2 - 90,
-        //success
-        assert(board.has_soldiers(2));
-        assert(board.has_soldiers(1));
-        board.move(1,{1,0},WarGame::Board::MoveDIR::Down);
-        assert(board.has_soldiers(2));
-        assert(board.has_soldiers(1));
-        board.move(1,{0,0},WarGame::Board::MoveDIR::Up);
-        //success
-        assert(board.has_soldiers(2));
-        assert(board.has_soldiers(1));
-        board.move(1,{1,0},WarGame::Board::MoveDIR::Down);//success
-        assert(board.has_soldiers(2));
-        assert(board.has_soldiers(1));
+        board.move(1,{1,2},WarGame::Board::MoveDIR::Down); //player2 soldier3 - 0, player2 soldier 6 - 20/10
+        board.move(1,{0,2},WarGame::Board::MoveDIR::Up); //player2 soldier3 - 0, player2 soldier 6 - 0
+        board.move(1,{1,2},WarGame::Board::MoveDIR::Down); //player2 soldier3 - 0, player2 soldier 6 - 0
+        board.move(1,{0,2},WarGame::Board::MoveDIR::Up); //player2 soldier3 - 0, player2 soldier 6 - 0
 
-        board.move(1,{0,0},WarGame::Board::MoveDIR::Up);//sucess
-        assert(board.has_soldiers(2));
-        assert(board.has_soldiers(1));
-        board.move(1,{1,0},WarGame::Board::MoveDIR::Down);
-        assert(board.has_soldiers(2));
-        assert(board.has_soldiers(1));
-        board.move(1,{0,0},WarGame::Board::MoveDIR::Up);
-        assert(board.has_soldiers(2));
-        assert(board.has_soldiers(1));
-        board.move(1,{1,0},WarGame::Board::MoveDIR::Down);
-        assert(board.has_soldiers(2));
-        assert(board.has_soldiers(1));
 
-        board.move(1,{0,2},WarGame::Board::MoveDIR::Up);
-        board.move(1,{1,2},WarGame::Board::MoveDIR::Up);
+        //just to be Sure all is dead
         assert(!board.has_soldiers(2));
-        assert(board.has_soldiers(1));
+
+        //good test
+
 
         // In your game, you can put more soldier types, such as the sniper and the paramedic types.
     }
@@ -123,4 +123,5 @@ namespace WarGame {
             }
         }
     }
+
 }

@@ -16,6 +16,10 @@ CMakeFiles/wargame-a.dir/DemoGame.cpp.o
  /home/avi/CLionProjects/wargame-a/DemoGame.hpp
  /home/avi/CLionProjects/wargame-a/FootCommander.hpp
  /home/avi/CLionProjects/wargame-a/FootSoldier.hpp
+ /home/avi/CLionProjects/wargame-a/Paramedic.hpp
+ /home/avi/CLionProjects/wargame-a/ParamedicCommander.hpp
+ /home/avi/CLionProjects/wargame-a/Sniper.hpp
+ /home/avi/CLionProjects/wargame-a/SniperCommander.hpp
  /home/avi/CLionProjects/wargame-a/Soldier.hpp
 CMakeFiles/wargame-a.dir/FootCommander.cpp.o
  /home/avi/CLionProjects/wargame-a/FootCommander.cpp
