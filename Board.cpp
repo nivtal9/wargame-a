@@ -46,7 +46,7 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
             Soldier &sol1 = getNearestSoldier(source.first, source.second + 1,
                                               board[source.first][source.second + 1]->getType(),
                                               board[source.first][source.second + 1]->getId());
-            if(board[sol1.getLocation().first][sol1.getLocation().second] != nullptr) {
+            if(board[sol1.getLocation().first][sol1.getLocation().second] != nullptr && sol1.getId()!=board[source.first ][source.second+1]->getId()) {
                 if (board[source.first][source.second + 1]->getType() == footsoldier ||
                     board[source.first][source.second + 1]->getType() == sniper) {
 
@@ -82,7 +82,7 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
             Soldier &sol2 = getNearestSoldier(source.first, source.second - 1,
                                               board[source.first][source.second - 1]->getType(),
                                               board[source.first][source.second - 1]->getId());
-            if(board[sol2.getLocation().first][sol2.getLocation().second] != nullptr) {
+            if(board[sol2.getLocation().first][sol2.getLocation().second] != nullptr && sol2.getId()!=board[source.first][source.second-1]->getId()) {
                 if (board[source.first][source.second-1]->getType() == footsoldier ||
                     board[source.first ][source.second-1]->getType() == sniper) {
 
@@ -118,7 +118,7 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
             Soldier &sol3 = getNearestSoldier(source.first + 1, source.second,
                                               board[source.first + 1][source.second]->getType(),
                                               board[source.first + 1][source.second]->getId());
-            if(board[sol3.getLocation().first][sol3.getLocation().second] != nullptr){
+            if(board[sol3.getLocation().first][sol3.getLocation().second] != nullptr && sol3.getId()!=board[source.first + 1][source.second]->getId()){
                 if( board[source.first + 1][source.second]->getType()==footsoldier||board[source.first + 1][source.second]->getType()==sniper ) {
 
                     if (!board[source.first + 1][source.second]->attack_or_heal(sol3)) {
@@ -155,7 +155,7 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
                                             board[source.first - 1][source.second]->getType(),
                                             board[source.first - 1][source.second]->getId());
 
-            if(board[sol4.getLocation().first][sol4.getLocation().second] != nullptr){
+            if(board[sol4.getLocation().first][sol4.getLocation().second] != nullptr && sol4.getId()!=board[source.first - 1][source.second]->getId() ){
            if( board[source.first - 1][source.second]->getType()==footsoldier||board[source.first - 1][source.second]->getType()==sniper ) {
                if (!board[source.first - 1][source.second]->attack_or_heal(sol4)) {
                    cout << "Down via Move" << endl;
@@ -201,6 +201,10 @@ bool WarGame::Board::isAuthorized(std::pair<int, int> location) const {
 
 Soldier &WarGame::Board::getNearestSoldier(int x,int y,type t,uint id) {
     Soldier *s=nullptr;
+    if(id==1 && !has_soldiers(2) || id==2 && !has_soldiers(1) ){
+        s=board[x][y];
+        return *s;
+    }
     if (t == footsoldier) {
         double MinDest = INT16_MAX;
         pair<int, int> MinDestPlace(-1, -1);
