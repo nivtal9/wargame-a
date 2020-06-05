@@ -1,5 +1,5 @@
 //
-// Created by nivtal9 on 24.5.2020.
+// Created by nivtal9 and avi130 on 24.5.2020.
 //
 #include "Board.hpp"
 #include "cmath"
@@ -9,9 +9,7 @@ Soldier *& WarGame::Board::operator[](std::pair<int, int> location) {
     if(!isAuthorized(location)){
         throw std::runtime_error("unauthorized location");
     }
-    //latestlocation.first=location.first;
-    //latestlocation.second=location.second;
-    //board[location.first][location.second]->setLocation(location);
+
     return *s;
 }
 // operator for reading which soldiers are on the game-board.
@@ -25,14 +23,11 @@ Soldier *WarGame::Board::operator[](std::pair<int, int> location) const {
 }
 
 void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGame::Board::MoveDIR direction) {
-    //try {
+
         if (board[source.first][source.second]== nullptr || board[source.first][source.second]->getId() != player_number) {
             throw std::runtime_error("Not Found Player");
         }
-    //}
-    //catch(exception &e){
-    //    throw std::runtime_error("unauthorized source");
-    //}
+
     switch (direction) {
         case Right:
         {
@@ -41,7 +36,6 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
                 throw std::runtime_error("unauthorized Move");
             }
             board[source.first][source.second + 1] = board[source.first][source.second];
-            //board[source.first][source.second+1]->setLocation({source.first,source.second+1});
             board[source.first][source.second] = nullptr;
             Soldier &sol1 = getNearestSoldier(source.first, source.second + 1,
                                               board[source.first][source.second + 1]->getType(),
@@ -56,19 +50,6 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
                     }
                 }
             }
-           /* for (int i = 0; i < board.size(); ++i) {
-                for (int j = 0; j < board[0].size(); ++j) {
-                   if(j==0)
-                       cout<<endl;
-                    if(board[i][j]!= nullptr)
-                        cout<<board[i][j]->getHp()<< " ";
-                    else
-                        cout<< " - ";
-
-                }
-            }
-            cout<<endl;
-            */
             break;
         }
         case Left: {
@@ -92,19 +73,6 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
                     }
                 }
             }
-        /*    for (int i = 0; i < board.size(); ++i) {
-                for (int j = 0; j < board[0].size(); ++j) {
-                    if(j==0)
-                        cout<<endl;
-                    if(board[i][j]!= nullptr)
-                        cout<<board[i][j]->getHp()<< " ";
-                    else
-                        cout<< " - ";
-
-                }
-            }
-            cout<<endl;
-            */
             break;
         }
         case Up: {
@@ -113,7 +81,6 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
                 throw std::runtime_error("unauthorized Move");
             }
             board[source.first + 1][source.second] = board[source.first][source.second];
-            //board[source.first+1][source.second]->setLocation({source.first+1,source.second});
             board[source.first][source.second] = nullptr;
             Soldier &sol3 = getNearestSoldier(source.first + 1, source.second,
                                               board[source.first + 1][source.second]->getType(),
@@ -128,18 +95,7 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
                     }
                 }
         }
-            for (int i = 0; i < board.size(); ++i) {
-                for (int j = 0; j < board[0].size(); ++j) {
-                    if(j==0)
-                        cout<<endl;
-                    if(board[i][j]!= nullptr)
-                        cout<<board[i][j]->getHp()<< " ";
-                    else
-                        cout<< " - ";
 
-                }
-            }
-            cout<<endl;
 
             break;
         }
@@ -163,18 +119,7 @@ void WarGame::Board::move(uint player_number, std::pair<int, int> source, WarGam
                }
            }
            }
-            for (int i = 0; i < board.size(); ++i) {
-                for (int j = 0; j < board[0].size(); ++j) {
-                    if(j==0)
-                        cout<<endl;
-                    if(board[i][j]!= nullptr)
-                        cout<<board[i][j]->getHp()<< " ";
-                    else
-                        cout<< " - ";
 
-                }
-            }
-            cout<<endl;
 
             break;
         }
@@ -227,10 +172,6 @@ Soldier &WarGame::Board::getNearestSoldier(int x,int y,type t,uint id) {
         }
     }
     if (t == footcommander) {
-/*        int MinDest = INT16_MAX;
-        pair<int, int> MinDestPlace(-1, -1);*/
-
-
         for (int i = 0; i < board.size(); ++i) {
             for (int j = 0; j < board[0].size(); ++j) {
                 if (board[i][j] != nullptr && board[i][j]->getId() == id && board[i][j]->getType() == footsoldier) {
@@ -250,24 +191,9 @@ Soldier &WarGame::Board::getNearestSoldier(int x,int y,type t,uint id) {
                     }
                 }
 
-/*                if (board[i][j] != nullptr && board[i][j]->getId() != id) {
-                    if (std::abs(x - i) + std::abs(y - j) < MinDest) {
-                        MinDest = std::abs(x - i) + std::abs(y - j);
-                        MinDestPlace.first = i;
-                        MinDestPlace.second = j;
-                    }
-                }*/
+
             }
         }
-/*        if (MinDestPlace.second != -1 && MinDestPlace.first != -1) {
-            s = board[MinDestPlace.first][MinDestPlace.second];
-        }*/
- //       Soldier& sol6=getNearestSoldier(x, y, footsoldier, id);
-/*        if(!board[x][y]->attack_or_heal(sol6)){
-            cout<<"footcomander2 via getNearest"<<endl;
-            board[sol6.getLocation().first][sol6.getLocation().second]=nullptr;
-        }*/
-//return s;
     }
     if(t==sniper){
         double MaxHp = INT16_MIN;
@@ -289,8 +215,7 @@ Soldier &WarGame::Board::getNearestSoldier(int x,int y,type t,uint id) {
         }
     }
     if(t==snipercommander){
-/*        int MaxHp = INT16_MIN;
-        pair<int, int> MaxHpPlace(-1, -1);*/
+
         for (int i = 0; i <board.size() ; ++i) {
             for (int j = 0; j <board[0].size() ; ++j) {
                  if (board[i][j] != nullptr && board[i][j]->getId() == id && board[i][j]->getType() == snipercommander) {
@@ -302,13 +227,6 @@ Soldier &WarGame::Board::getNearestSoldier(int x,int y,type t,uint id) {
                         board[sol7.getLocation().first][sol7.getLocation().second]=nullptr;
                     }
                 }
-/*                if(board[i][j] != nullptr && board[i][j]->getId() != id){
-                    if(board[i][j]->getHp()>MaxHp){
-                        MaxHp=board[i][j]->getHp();
-                        MaxHpPlace.first=i;
-                        MaxHpPlace.second=j;
-                    }
-                }*/
             }
         }
         for (int i = 0; i <board.size() ; ++i) {
@@ -320,24 +238,10 @@ Soldier &WarGame::Board::getNearestSoldier(int x,int y,type t,uint id) {
                         board[sol7.getLocation().first][sol7.getLocation().second] = nullptr;
                     }
                 }
-/*                if(board[i][j] != nullptr && board[i][j]->getId() != id){
-                    if(board[i][j]->getHp()>MaxHp){
-                        MaxHp=board[i][j]->getHp();
-                        MaxHpPlace.first=i;
-                        MaxHpPlace.second=j;
-                    }
-                }*/
+
             }
         }
-/*        if (MaxHpPlace.second != -1 && MaxHpPlace.first != -1) {
-            s = board[MaxHpPlace.first][MaxHpPlace.second];
-        }*/
-//Soldier &sol8=getNearestSoldier(x, y, sniper, id);
-/*        if(!board[x][y]->attack_or_heal(sol8)){
-            cout<<"snipercomander2 via getNearest"<<endl;
-            board[sol8.getLocation().first][sol8.getLocation().second]=nullptr;
-        }*/
-//return sol8;
+
     }
     if(t==paramedic){
         s=board[x][y];
